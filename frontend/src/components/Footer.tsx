@@ -19,27 +19,27 @@ export default function Footer() {
 
           {/* Games list */}
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs font-orbitron text-foreground/40 max-w-2xl">
-            <span>Subway Surfers</span>
+            <span>Shadow Run</span>
             <span className="text-neon-green/30">•</span>
-            <span>Slope</span>
+            <span>Prism Jump</span>
             <span className="text-neon-green/30">•</span>
-            <span>1v1.lol</span>
+            <span>Cyber Strike</span>
             <span className="text-neon-green/30">•</span>
-            <span>Flappy Bird</span>
+            <span>Pixel Voyage</span>
             <span className="text-neon-green/30">•</span>
-            <span>Fortnite</span>
+            <span>Arena Blitz</span>
             <span className="text-neon-green/30">•</span>
-            <span>Brawl Stars</span>
+            <span>Grid Wars</span>
             <span className="text-neon-green/30">•</span>
-            <span>Clash of Clans</span>
+            <span>Rune Quest</span>
             <span className="text-neon-green/30">•</span>
-            <span>Minecraft</span>
+            <span>Voxel Realms</span>
             <span className="text-neon-green/30">•</span>
-            <span>FIFA 26</span>
+            <span>Neon Kick</span>
             <span className="text-neon-green/30">•</span>
-            <span>Geometry Dash</span>
+            <span>Stellar Assault</span>
             <span className="text-neon-green/30">•</span>
-            <span>Roblox</span>
+            <span>Neon Racers</span>
           </div>
 
           {/* Attribution */}

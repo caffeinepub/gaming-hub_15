@@ -1,77 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Add Roblox game card and iframe embed",
+  "title": "Add fullscreen mode to game play page",
   "projectName": "Arcade Hub",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-8",
-      "text": "Add a Roblox game card to the GameLibrary section. The card must follow the existing GameCard component pattern with a thumbnail image, genre badge (e.g., 'Sandbox'), title 'Roblox', a short description, and a 'Play Now' button styled with the neon arcade theme.",
+      "id": "REQ-1",
+      "text": "Add a fullscreen toggle button to the GamePlayPage toolbar that expands the game container to fill the entire browser viewport using the Fullscreen API (document.documentElement.requestFullscreen). The button should show an 'Enter Fullscreen' icon when not in fullscreen and an 'Exit Fullscreen' icon when active. Listen to the 'fullscreenchange' event to keep button state in sync.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Can you add Roblox"
+          "Can you make it full screan"
         ]
       },
       "acceptanceCriteria": [
-        "A Roblox game card appears in the GameLibrary grid alongside the existing 10 games.",
-        "The card displays a thumbnail image, a genre badge, the title 'Roblox', a short description, and a 'Play Now' button.",
-        "The card styling matches the existing neon arcade theme and GameCard component pattern."
+        "A fullscreen toggle button is visible in the GamePlayPage toolbar.",
+        "Clicking the button expands the page to fill the entire screen using the Fullscreen API.",
+        "The button icon/label updates to reflect the current fullscreen state.",
+        "Pressing Escape or clicking the button again exits fullscreen and restores the normal view.",
+        "The game canvas resizes correctly to fill the fullscreen area."
       ]
     },
     {
-      "id": "REQ-9",
-      "text": "Add an iframe embed play page for Roblox at route /play/roblox using the URL https://www.roblox.com/games. The page must embed the game in a full-width iframe consistent with the existing GamePlayPage pattern.",
+      "id": "REQ-2",
+      "text": "When in fullscreen mode, hide the Header and Footer components so only the game content is visible. The game canvas and HUD should stretch to use the full available screen space.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "Can you add Roblox"
+          "Can you make it full screan"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking 'Play Now' on the Roblox card navigates to /play/roblox.",
-        "The play page embeds https://www.roblox.com/games in a full-width iframe.",
-        "The page includes the standard toolbar (navigation, fullscreen, external link) consistent with other GamePlayPage instances."
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Update the Header and Footer components to reflect the expanded game count (now 11 games total). The game count badge in the Header should display '11 GAMES' and the Footer game list should include Roblox.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "Can you add Roblox"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The Header badge displays '11 GAMES'.",
-        "The Footer game list includes Roblox alongside all existing 10 games."
+        "Header and Footer are not visible when the game is in fullscreen mode.",
+        "The game canvas occupies the full screen with no dead space.",
+        "Exiting fullscreen restores the Header and Footer to their normal positions."
       ]
     }
   ],
   "constraints": [
-    "Follow the existing GameCard component pattern exactly — do not alter the component's interface.",
-    "The new route must use the same /play/$gameId pattern as existing game play pages.",
-    "Do not modify any files listed in frontend.immutablePaths."
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui.",
+    "Do not alter individual game component files — fullscreen logic must be contained in GamePlayPage."
   ],
   "nonGoals": [
-    "Modifying any backend logic.",
-    "Changing the visual theme or layout of existing game cards.",
-    "Adding any authentication or user account features."
+    "Adding fullscreen support on the HomePage or GameLibrary.",
+    "Changing game logic or canvas rendering internals.",
+    "Backend changes of any kind."
   ],
   "imageRequirements": {
-    "required": [
-      "Neon arcade-styled thumbnail illustration for Roblox — dark background with vivid neon accents, pixel/retro game art aesthetic (roblox-thumb.dim_400x300.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

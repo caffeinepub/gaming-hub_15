@@ -2,27 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-roblox-game-card-to-the-gamelibrary-section-the-card-must-follow-the-existing-gamecard-component-pattern-with-a-thumbnail-image-genre-badge-e-g-sandbox-title-roblox-a-short-description-and-a-play-now-button-styled-with-the-neon-arcade-theme",
-      "featureTitle": "Add a Roblox game card to the GameLibrary section. The card must follow the existing GameCard component pattern with a thumbnail image, genre badge (e.g., 'Sandbox'), title 'Roblox', a short description, and a 'Play Now' button styled with the neon arcade theme.",
-      "files": [
-        "frontend/src/components/GameLibrary.tsx"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-an-iframe-embed-play-page-for-roblox-at-route-play-roblox-using-the-url-https-www-roblox-com-games-the-page-must-embed-the-game-in-a-full-width-iframe-consistent-with-the-existing-gameplaypage-pattern",
-      "featureTitle": "Add an iframe embed play page for Roblox at route /play/roblox using the URL https://www.roblox.com/games. The page must embed the game in a full-width iframe consistent with the existing GamePlayPage pattern.",
+      "featureId": "feature-add-a-fullscreen-toggle-button-to-the-gameplaypage-toolbar-that-expands-the-game-container-to-fill-the-entire-browser-viewport-using-the-fullscreen-api-document-documentelement-requestfullscreen-the-button-should-show-an-enter-fullscreen-icon-when-not-in-fullscreen-and-an-exit-fullscreen-icon-when-active-listen-to-the-fullscreenchange-event-to-keep-button-state-in-sync",
+      "featureTitle": "Add a fullscreen toggle button to the GamePlayPage toolbar that expands the game container to fill the entire browser viewport using the Fullscreen API (document.documentElement.requestFullscreen). The button should show an 'Enter Fullscreen' icon when not in fullscreen and an 'Exit Fullscreen' icon when active. Listen to the 'fullscreenchange' event to keep button state in sync.",
       "files": [
         "frontend/src/pages/GamePlayPage.tsx"
       ],
@@ -35,16 +16,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
+        "REQ-1"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-header-and-footer-components-to-reflect-the-expanded-game-count-now-11-games-total-the-game-count-badge-in-the-header-should-display-11-games-and-the-footer-game-list-should-include-roblox",
-      "featureTitle": "Update the Header and Footer components to reflect the expanded game count (now 11 games total). The game count badge in the Header should display '11 GAMES' and the Footer game list should include Roblox.",
+      "featureId": "feature-when-in-fullscreen-mode-hide-the-header-and-footer-components-so-only-the-game-content-is-visible-the-game-canvas-and-hud-should-stretch-to-use-the-full-available-screen-space",
+      "featureTitle": "When in fullscreen mode, hide the Header and Footer components so only the game content is visible. The game canvas and HUD should stretch to use the full available screen space.",
       "files": [
-        "frontend/src/components/Footer.tsx",
-        "frontend/src/components/Header.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/pages/GamePlayPage.tsx"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -55,7 +36,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-10"
+        "REQ-2"
       ],
       "confidence": "high"
     }

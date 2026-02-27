@@ -1,188 +1,119 @@
 import { useParams, useNavigate } from '@tanstack/react-router';
-import { ArrowLeft, ExternalLink, Maximize2 } from 'lucide-react';
+import { ArrowLeft, Maximize, Minimize } from 'lucide-react';
+import { lazy, Suspense, ComponentType, useEffect, useCallback } from 'react';
+import { useFullscreenContext } from '../App';
 
-const gameData: Record<string, { title: string; url: string; color: string; description: string }> = {
-  'subway-surfers': {
-    title: 'Subway Surfers',
-    url: 'https://poki.com/en/g/subway-surfers',
-    color: 'neon-green',
-    description: 'Endless runner — dodge trains and collect coins!',
-  },
-  'slope': {
-    title: 'Slope',
-    url: 'https://slope-game.github.io',
-    color: 'neon-cyan',
-    description: 'Guide a ball down an endless neon slope!',
-  },
-  '1v1lol': {
-    title: '1v1.lol',
-    url: 'https://1v1.lol',
-    color: 'neon-pink',
-    description: 'Build and battle in this intense 1v1 arena!',
-  },
-  'flappy-bird': {
-    title: 'Flappy Bird',
-    url: 'https://flappybird.io',
-    color: 'neon-yellow',
-    description: 'Tap to fly through the pipes!',
-  },
-  'fortnite': {
-    title: 'Fortnite',
-    url: 'https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2',
-    color: 'neon-cyan',
-    description: 'Drop in and be the last one standing!',
-  },
-  'brawl-stars': {
-    title: 'Brawl Stars',
-    url: 'https://brawlstars.com',
-    color: 'neon-pink',
-    description: 'Fast-paced 3v3 multiplayer brawls!',
-  },
-  'clash-of-clans': {
-    title: 'Clash of Clans',
-    url: 'https://clashofclans.com',
-    color: 'neon-yellow',
-    description: 'Build your village and lead your clan to glory!',
-  },
-  'minecraft': {
-    title: 'Minecraft',
-    url: 'https://classic.minecraft.net',
-    color: 'neon-green',
-    description: 'Mine, craft, and build anything you imagine!',
-  },
-  'fifa-26': {
-    title: 'FIFA 26',
-    url: 'https://www.ea.com/games/ea-sports-fc/fc-26',
-    color: 'neon-cyan',
-    description: 'Experience the beautiful game like never before!',
-  },
-  'geometry-dash': {
-    title: 'Geometry Dash',
-    url: 'https://geometrydash.io',
-    color: 'neon-pink',
-    description: 'Jump and fly through rhythm-based danger!',
-  },
-  'roblox': {
-    title: 'Roblox',
-    url: 'https://www.roblox.com/games',
-    color: 'neon-yellow',
-    description: 'Dive into millions of player-created worlds!',
-  },
+const gameComponents: Record<string, React.LazyExoticComponent<ComponentType>> = {
+  'shadow-run': lazy(() => import('../components/games/ShadowRunGame')),
+  'prism-jump': lazy(() => import('../components/games/PrismJumpGame')),
+  'cyber-strike': lazy(() => import('../components/games/CyberStrikeGame')),
+  'pixel-voyage': lazy(() => import('../components/games/PixelVoyageGame')),
+  'arena-blitz': lazy(() => import('../components/games/ArenaBlitzGame')),
+  'grid-wars': lazy(() => import('../components/games/GridWarsGame')),
+  'rune-quest': lazy(() => import('../components/games/RuneQuestGame')),
+  'voxel-realms': lazy(() => import('../components/games/VoxelRealmsGame')),
+  'neon-kick': lazy(() => import('../components/games/NeonKickGame')),
+  'stellar-assault': lazy(() => import('../components/games/StellarAssaultGame')),
+  'neon-racers': lazy(() => import('../components/games/NeonRacersGame')),
 };
 
-const colorStyles: Record<string, { text: string; border: string; bg: string; glow: string }> = {
-  'neon-green': {
-    text: 'text-neon-green',
-    border: 'border-neon-green/40',
-    bg: 'bg-neon-green/10',
-    glow: '0 0 15px oklch(0.88 0.28 142 / 0.3)',
-  },
-  'neon-cyan': {
-    text: 'text-neon-cyan',
-    border: 'border-neon-cyan/40',
-    bg: 'bg-neon-cyan/10',
-    glow: '0 0 15px oklch(0.82 0.2 200 / 0.3)',
-  },
-  'neon-pink': {
-    text: 'text-neon-pink',
-    border: 'border-neon-pink/40',
-    bg: 'bg-neon-pink/10',
-    glow: '0 0 15px oklch(0.72 0.28 330 / 0.3)',
-  },
-  'neon-yellow': {
-    text: 'text-neon-yellow',
-    border: 'border-neon-yellow/40',
-    bg: 'bg-neon-yellow/10',
-    glow: '0 0 15px oklch(0.92 0.22 100 / 0.3)',
-  },
+const gameInfo: Record<string, { title: string; description: string; color: string }> = {
+  'shadow-run': { title: 'Shadow Run', description: 'Endless runner through neon shadows', color: '#a855f7' },
+  'prism-jump': { title: 'Prism Jump', description: 'Navigate a glowing ball through prismatic tunnels', color: '#22d3ee' },
+  'cyber-strike': { title: 'Cyber Strike', description: 'Tactical cyber warfare shooter', color: '#f43f5e' },
+  'pixel-voyage': { title: 'Pixel Voyage', description: 'Fly through pixel skies', color: '#4ade80' },
+  'arena-blitz': { title: 'Arena Blitz', description: 'Fast-paced arena combat', color: '#fb923c' },
+  'grid-wars': { title: 'Grid Wars', description: 'Strategic grid-based warfare', color: '#22d3ee' },
+  'rune-quest': { title: 'Rune Quest', description: 'Ancient rune-powered magic combat', color: '#a855f7' },
+  'voxel-realms': { title: 'Voxel Realms', description: 'Build and defend your voxel kingdom', color: '#4ade80' },
+  'neon-kick': { title: 'Neon Kick', description: 'Neon-lit soccer action', color: '#facc15' },
+  'stellar-assault': { title: 'Stellar Assault', description: 'Rhythm-based space shooter', color: '#f43f5e' },
+  'neon-racers': { title: 'Neon Racers', description: 'High-speed neon racing', color: '#facc15' },
 };
 
 export default function GamePlayPage() {
   const { gameId } = useParams({ from: '/play/$gameId' });
   const navigate = useNavigate();
+  const { isFullscreen, setIsFullscreen } = useFullscreenContext();
+  const info = gameInfo[gameId] || { title: gameId, description: '', color: '#4ade80' };
+  const GameComponent = gameComponents[gameId];
 
-  const game = gameData[gameId];
+  // Keep context in sync with actual fullscreen state
+  useEffect(() => {
+    const handler = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handler);
+    return () => document.removeEventListener('fullscreenchange', handler);
+  }, [setIsFullscreen]);
 
-  if (!game) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6 px-4">
-        <div className="font-arcade text-2xl neon-text-pink">GAME NOT FOUND</div>
-        <p className="font-rajdhani text-lg text-foreground/60">The game you're looking for doesn't exist.</p>
-        <button
-          onClick={() => navigate({ to: '/' })}
-          className="flex items-center gap-2 px-6 py-3 rounded border border-neon-green/40 bg-neon-green/10 text-neon-green font-orbitron font-bold text-sm hover:bg-neon-green/20 transition-all duration-200"
-        >
-          <ArrowLeft size={16} />
-          BACK TO HOME
-        </button>
-      </div>
-    );
-  }
-
-  const styles = colorStyles[game.color];
+  const toggleFullscreen = useCallback(async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch (err) {
+      console.error('Fullscreen error:', err);
+    }
+  }, []);
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)]">
-      {/* Game toolbar */}
-      <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-border/50 bg-card/80 backdrop-blur-sm flex-shrink-0">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigate({ to: '/' })}
-            className="flex items-center gap-2 px-3 py-1.5 rounded border border-border/50 bg-background/50 text-foreground/70 hover:text-neon-green hover:border-neon-green/40 font-orbitron font-bold text-xs transition-all duration-200"
-          >
-            <ArrowLeft size={14} />
-            <span className="hidden sm:inline">BACK</span>
-          </button>
-
-          <div className="h-5 w-px bg-border/50" />
-
-          <div className="flex items-center gap-2">
-            <div className={`w-2 h-2 rounded-full ${styles.bg} border ${styles.border} animate-pulse`} />
-            <span className={`font-orbitron font-bold text-sm ${styles.text}`}>{game.title}</span>
-            <span className="hidden sm:inline font-rajdhani text-sm text-foreground/40">— {game.description}</span>
-          </div>
+    <div className="min-h-screen bg-background flex flex-col">
+      {/* Toolbar */}
+      <div className="flex items-center gap-4 px-4 py-3 border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
+        <button
+          onClick={() => navigate({ to: '/' })}
+          className="flex items-center gap-2 text-muted-foreground hover:text-neon-green transition-colors font-arcade text-xs"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          BACK
+        </button>
+        <div className="flex-1 min-w-0">
+          <h1 className="font-arcade text-sm truncate" style={{ color: info.color, textShadow: `0 0 10px ${info.color}` }}>
+            {info.title}
+          </h1>
+          <p className="text-muted-foreground text-xs font-rajdhani truncate">{info.description}</p>
         </div>
 
-        <div className="flex items-center gap-2">
-          <a
-            href={game.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded border border-border/50 bg-background/50 text-foreground/50 hover:text-foreground/80 font-orbitron text-xs transition-all duration-200"
-            title="Open in new tab"
-          >
-            <ExternalLink size={13} />
-            <span className="hidden sm:inline">OPEN TAB</span>
-          </a>
-          <button
-            onClick={() => {
-              const iframe = document.getElementById('game-iframe') as HTMLIFrameElement;
-              iframe?.requestFullscreen?.();
-            }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded border ${styles.border} ${styles.bg} ${styles.text} font-orbitron text-xs transition-all duration-200 hover:opacity-80`}
-            title="Fullscreen"
-          >
-            <Maximize2 size={13} />
-            <span className="hidden sm:inline">FULLSCREEN</span>
-          </button>
-        </div>
+        {/* Fullscreen Toggle Button */}
+        <button
+          onClick={toggleFullscreen}
+          title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+          className="flex items-center gap-2 text-muted-foreground hover:text-neon-green transition-colors font-arcade text-xs px-2 py-1 border border-border hover:border-neon-green rounded"
+        >
+          {isFullscreen ? (
+            <>
+              <Minimize className="w-4 h-4" />
+              <span className="hidden sm:inline">EXIT</span>
+            </>
+          ) : (
+            <>
+              <Maximize className="w-4 h-4" />
+              <span className="hidden sm:inline">FULLSCREEN</span>
+            </>
+          )}
+        </button>
       </div>
 
-      {/* iframe container */}
-      <div className="flex-1 relative bg-black overflow-hidden">
-        {/* Neon border glow */}
-        <div
-          className="absolute inset-0 pointer-events-none z-10"
-          style={{ boxShadow: `inset 0 0 30px ${styles.glow}` }}
-        />
-        <iframe
-          id="game-iframe"
-          src={game.url}
-          title={game.title}
-          className="w-full h-full border-0"
-          allow="fullscreen; autoplay; encrypted-media; gamepad"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-top-navigation"
-        />
+      {/* Game Area */}
+      <div className="flex-1 flex items-center justify-center bg-background p-2 overflow-auto">
+        {GameComponent ? (
+          <Suspense fallback={
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-16 h-16 border-4 border-neon-green border-t-transparent rounded-full animate-spin" />
+              <p className="font-arcade text-neon-green text-sm animate-pulse">LOADING...</p>
+            </div>
+          }>
+            <GameComponent />
+          </Suspense>
+        ) : (
+          <div className="text-center">
+            <p className="font-arcade text-destructive text-sm">GAME NOT FOUND</p>
+            <p className="text-muted-foreground text-xs mt-2 font-rajdhani">Game ID: {gameId}</p>
+          </div>
+        )}
       </div>
     </div>
   );

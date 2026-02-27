@@ -1,57 +1,44 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Roblox game card and iframe embed",
+  "title": "Add fullscreen mode to game play page",
   "requirements": [
     {
-      "id": "REQ-8",
-      "summary": "Add a Roblox game card to the GameLibrary section following the existing GameCard component pattern with thumbnail, genre badge, title, description, and Play Now button styled with neon arcade theme",
+      "id": "REQ-1",
+      "summary": "Add a fullscreen toggle button to the GamePlayPage toolbar that uses the Fullscreen API to expand the game container to fill the entire browser viewport, with dynamic icon state based on fullscreen status",
       "acceptanceCriteria": [
-        "A Roblox game card appears in the GameLibrary grid alongside the existing 10 games.",
-        "The card displays a thumbnail image, a genre badge, the title 'Roblox', a short description, and a 'Play Now' button.",
-        "The card styling matches the existing neon arcade theme and GameCard component pattern."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/GameLibrary.tsx",
-          "operation": "modify",
-          "description": "Add a new GameCard component instance for Roblox with thumbnail path 'frontend/public/assets/generated/roblox-thumb.dim_400x300.png', genre 'Sandbox', title 'Roblox', description text, accent color variant, and /play/roblox route. Insert it into the existing grid alongside the 10 current games."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Add an iframe embed play page for Roblox at route /play/roblox using https://www.roblox.com/games, consistent with existing GamePlayPage pattern",
-      "acceptanceCriteria": [
-        "Clicking 'Play Now' on the Roblox card navigates to /play/roblox.",
-        "The play page embeds https://www.roblox.com/games in a full-width iframe.",
-        "The page includes the standard toolbar (navigation, fullscreen, external link) consistent with other GamePlayPage instances."
+        "A fullscreen toggle button is visible in the GamePlayPage toolbar.",
+        "Clicking the button expands the page to fill the entire screen using the Fullscreen API.",
+        "The button icon/label updates to reflect the current fullscreen state.",
+        "Pressing Escape or clicking the button again exits fullscreen and restores the normal view.",
+        "The game canvas resizes correctly to fill the fullscreen area."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/GamePlayPage.tsx",
           "operation": "modify",
-          "description": "Add a game entry for Roblox (id: 'roblox', name: 'Roblox', url: 'https://www.roblox.com/games') to the games array so the existing GamePlayPage component can render it via the /play/roblox route."
+          "description": "Add state management for fullscreen mode using React useState. Implement toggleFullscreen function that calls document.documentElement.requestFullscreen() to enter fullscreen and document.exitFullscreen() to exit. Add a useEffect hook that listens to the 'fullscreenchange' event on the document to sync button state when the user exits fullscreen via Escape key. In the toolbar section, add a fullscreen toggle button that displays an 'Enter Fullscreen' icon (Maximize or Expand icon) when not in fullscreen mode and an 'Exit Fullscreen' icon (Minimize or Compress icon) when active. Apply conditional styling to the game container so it fills the viewport when in fullscreen mode. Ensure the game canvas dynamically adjusts its dimensions to fill the available space."
         }
       ]
     },
     {
-      "id": "REQ-10",
-      "summary": "Update the Header and Footer components to reflect the expanded game count (now 11 games total)",
+      "id": "REQ-2",
+      "summary": "Hide Header and Footer components when in fullscreen mode so only the game content occupies the full screen space",
       "acceptanceCriteria": [
-        "The Header badge displays '11 GAMES'.",
-        "The Footer game list includes Roblox alongside all existing 10 games."
+        "Header and Footer are not visible when the game is in fullscreen mode.",
+        "The game canvas occupies the full screen with no dead space.",
+        "Exiting fullscreen restores the Header and Footer to their normal positions."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Header.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Update the game count badge text from '10 GAMES' to '11 GAMES' to reflect the addition of Roblox."
+          "description": "Add state or context to track the current fullscreen status across the app. Conditionally render the Header and Footer components in the root layout based on fullscreen state. When fullscreen is active, hide both Header and Footer so only the Outlet (game content) is visible. When fullscreen is exited, restore Header and Footer to their normal positions. Ensure the layout adjusts seamlessly without layout shifts."
         },
         {
-          "path": "frontend/src/components/Footer.tsx",
+          "path": "frontend/src/pages/GamePlayPage.tsx",
           "operation": "modify",
-          "description": "Add 'Roblox' to the games list array in the Footer component so it displays alongside the existing 10 games in the footer section."
+          "description": "Integrate with the App-level fullscreen state or context to notify the root layout when fullscreen mode is toggled. Ensure that entering fullscreen triggers the hiding of Header and Footer, and exiting fullscreen restores them. Apply full-height styling to the game container when in fullscreen to eliminate any dead space and ensure the game canvas stretches to use the entire viewport."
         }
       ]
     }
