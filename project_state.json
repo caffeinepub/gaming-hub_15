@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "A gaming website (arcade-style hub) featuring Subway Surfers, Slope, 1v1.lol, Flappy Bird, Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Games are displayed as cards with descriptions and embedded via iframes for in-browser play.",
+  "projectStateVersion": 7,
+  "summary": "A gaming website (arcade-style hub) featuring Subway Surfers, Slope, 1v1.lol, Flappy Bird, Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, Geometry Dash, and Roblox. Games are displayed as cards with descriptions and embedded via iframes for in-browser play.",
   "architectural_notes": [
     "Games are embedded using iframes pointing to external hosted game URLs"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Neon-stylized game thumbnail for Fortnite showing a colorful battle royale scene with bold lettering (fortnite-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Brawl Stars showing cartoon characters in a vibrant arena (brawlstars-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Clash of Clans showing a medieval village with glowing accents (clashofclans-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Minecraft showing pixelated blocky landscape with neon glow effects (minecraft-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for FIFA 26 showing a soccer stadium with electric lighting (fifa26-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Geometry Dash showing geometric shapes and neon color trail (geometrydash-thumb.dim_400x225.png)",
+  "imageRequirements": "## Required Images\n- Neon arcade-styled thumbnail illustration for Roblox — dark background with vivid neon accents, pixel/retro game art aesthetic (roblox-thumb.dim_400x300.png)",
   "existing_features": [
     {
       "id": "feature-create-a-visually-striking-gaming-hub-homepage-with-a-bold-arcade-neon-aesthetic-dark-background-vivid-accent-colors-e-g-neon-green-hot-pink-electric-yellow-pixel-inspired-typography-and-a-dynamic-grid-layout-for-game-cards-apply-this-theme-consistently-across-all-pages-and-components",
@@ -62,6 +62,30 @@
       "title": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
       "reqIds": [
         "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-roblox-game-card-to-the-gamelibrary-section-the-card-must-follow-the-existing-gamecard-component-pattern-with-a-thumbnail-image-genre-badge-e-g-sandbox-title-roblox-a-short-description-and-a-play-now-button-styled-with-the-neon-arcade-theme",
+      "title": "Add a Roblox game card to the GameLibrary section. The card must follow the existing GameCard component pattern with a thumbnail image, genre badge (e.g., 'Sandbox'), title 'Roblox', a short description, and a 'Play Now' button styled with the neon arcade theme.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-iframe-embed-play-page-for-roblox-at-route-play-roblox-using-the-url-https-www-roblox-com-games-the-page-must-embed-the-game-in-a-full-width-iframe-consistent-with-the-existing-gameplaypage-pattern",
+      "title": "Add an iframe embed play page for Roblox at route /play/roblox using the URL https://www.roblox.com/games. The page must embed the game in a full-width iframe consistent with the existing GamePlayPage pattern.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-header-and-footer-components-to-reflect-the-expanded-game-count-now-11-games-total-the-game-count-badge-in-the-header-should-display-11-games-and-the-footer-game-list-should-include-roblox",
+      "title": "Update the Header and Footer components to reflect the expanded game count (now 11 games total). The game count badge in the Header should display '11 GAMES' and the Footer game list should include Roblox.",
+      "reqIds": [
+        "REQ-10"
       ],
       "version": 1
     }
@@ -130,6 +154,12 @@
     {
       "id": "AR-11",
       "summary": "Add Geometry Dash game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add Roblox game card and iframe embed",
       "reqIds": [],
       "status": "pending"
     }

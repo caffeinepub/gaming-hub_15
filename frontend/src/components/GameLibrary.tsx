@@ -81,6 +81,14 @@ const games = [
     genre: 'RHYTHM',
     accentColor: 'pink' as const,
   },
+  {
+    id: 'roblox',
+    title: 'Roblox',
+    description: 'Dive into millions of player-created worlds and experiences. Build, explore, and play anything imaginable!',
+    thumbnailPath: '/assets/generated/roblox-thumb.dim_400x300.png',
+    genre: 'SANDBOX',
+    accentColor: 'yellow' as const,
+  },
 ];
 
 export default function GameLibrary() {

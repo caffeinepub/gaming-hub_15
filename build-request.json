@@ -1,81 +1,76 @@
 {
   "kind": "build_request",
-  "title": "Add 6 new games: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, Geometry Dash",
+  "title": "Add Roblox game card and iframe embed",
   "projectName": "Arcade Hub",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-5",
-      "text": "Add six new game cards to the GameLibrary section: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Each card must follow the existing GameCard component pattern with a thumbnail, genre badge, title, short description, and 'Play Now' button styled with the neon arcade theme.",
+      "id": "REQ-8",
+      "text": "Add a Roblox game card to the GameLibrary section. The card must follow the existing GameCard component pattern with a thumbnail image, genre badge (e.g., 'Sandbox'), title 'Roblox', a short description, and a 'Play Now' button styled with the neon arcade theme.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-6"
         ],
         "quotes": [
-          "Can you add Fortnite and brawl stars and clash of clans also Minecraft ohh and fifa 26 and last but not least geometry dash"
+          "Can you add Roblox"
         ]
       },
       "acceptanceCriteria": [
-        "Six new game cards appear in the GameLibrary grid alongside the existing four",
-        "Each new card displays a title, short description, genre badge, and 'Play Now' button",
-        "Cards are styled consistently with the existing neon arcade theme",
-        "The grid layout accommodates the expanded set of cards responsively"
+        "A Roblox game card appears in the GameLibrary grid alongside the existing 10 games.",
+        "The card displays a thumbnail image, a genre badge, the title 'Roblox', a short description, and a 'Play Now' button.",
+        "The card styling matches the existing neon arcade theme and GameCard component pattern."
       ]
     },
     {
-      "id": "REQ-6",
-      "text": "Add iframe embed play pages for the six new games using these URLs: Fortnite — https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2, Brawl Stars — https://brawlstars.com, Clash of Clans — https://clashofclans.com, Minecraft — https://classic.minecraft.net, FIFA 26 — https://www.ea.com/games/ea-sports-fc/fc-26, Geometry Dash — https://geometrydash.io. Each game must have a dedicated route at /play/$gameId that embeds the game in a full-width iframe, consistent with the existing GamePlayPage pattern.",
+      "id": "REQ-9",
+      "text": "Add an iframe embed play page for Roblox at route /play/roblox using the URL https://www.roblox.com/games. The page must embed the game in a full-width iframe consistent with the existing GamePlayPage pattern.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-6"
         ],
         "quotes": [
-          "Can you add Fortnite and brawl stars and clash of clans also Minecraft ohh and fifa 26 and last but not least geometry dash"
+          "Can you add Roblox"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking 'Play Now' on any of the six new game cards navigates to /play/$gameId",
-        "Each game page renders a full-width iframe with the correct URL",
-        "The play page toolbar shows the game name and a back/external link option",
-        "All six new game routes work without breaking existing game routes"
+        "Clicking 'Play Now' on the Roblox card navigates to /play/roblox.",
+        "The play page embeds https://www.roblox.com/games in a full-width iframe.",
+        "The page includes the standard toolbar (navigation, fullscreen, external link) consistent with other GamePlayPage instances."
       ]
     },
     {
-      "id": "REQ-7",
-      "text": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
+      "id": "REQ-10",
+      "text": "Update the Header and Footer components to reflect the expanded game count (now 11 games total). The game count badge in the Header should display '11 GAMES' and the Footer game list should include Roblox.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-6"
+        ],
+        "quotes": [
+          "Can you add Roblox"
         ]
       },
       "acceptanceCriteria": [
-        "Header game count badge displays 10 instead of 4",
-        "Footer game list includes all ten games",
-        "No visual regressions in the header or footer layout"
+        "The Header badge displays '11 GAMES'.",
+        "The Footer game list includes Roblox alongside all existing 10 games."
       ]
     }
   ],
   "constraints": [
-    "Preserve all existing game cards and their iframe URLs without modification",
-    "All new components must follow the existing neon arcade theme defined in index.css and tailwind.config.js",
-    "Do not edit any files under frontend/src/hooks/ or frontend/src/main.tsx"
+    "Follow the existing GameCard component pattern exactly — do not alter the component's interface.",
+    "The new route must use the same /play/$gameId pattern as existing game play pages.",
+    "Do not modify any files listed in frontend.immutablePaths."
   ],
   "nonGoals": [
-    "Adding search or filter functionality to the game library",
-    "Backend changes — all game data remains frontend-only",
-    "User accounts, favorites, or any personalization features"
+    "Modifying any backend logic.",
+    "Changing the visual theme or layout of existing game cards.",
+    "Adding any authentication or user account features."
   ],
   "imageRequirements": {
     "required": [
-      "Neon-stylized game thumbnail for Fortnite showing a colorful battle royale scene with bold lettering (fortnite-thumb.dim_400x225.png)",
-      "Neon-stylized game thumbnail for Brawl Stars showing cartoon characters in a vibrant arena (brawlstars-thumb.dim_400x225.png)",
-      "Neon-stylized game thumbnail for Clash of Clans showing a medieval village with glowing accents (clashofclans-thumb.dim_400x225.png)",
-      "Neon-stylized game thumbnail for Minecraft showing pixelated blocky landscape with neon glow effects (minecraft-thumb.dim_400x225.png)",
-      "Neon-stylized game thumbnail for FIFA 26 showing a soccer stadium with electric lighting (fifa26-thumb.dim_400x225.png)",
-      "Neon-stylized game thumbnail for Geometry Dash showing geometric shapes and neon color trail (geometrydash-thumb.dim_400x225.png)"
+      "Neon arcade-styled thumbnail illustration for Roblox — dark background with vivid neon accents, pixel/retro game art aesthetic (roblox-thumb.dim_400x300.png)"
     ],
     "edits": []
   }

@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-six-new-game-cards-to-the-gamelibrary-section-fortnite-brawl-stars-clash-of-clans-minecraft-fifa-26-and-geometry-dash-each-card-must-follow-the-existing-gamecard-component-pattern-with-a-thumbnail-genre-badge-title-short-description-and-play-now-button-styled-with-the-neon-arcade-theme",
-      "featureTitle": "Add six new game cards to the GameLibrary section: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Each card must follow the existing GameCard component pattern with a thumbnail, genre badge, title, short description, and 'Play Now' button styled with the neon arcade theme.",
+      "featureId": "feature-add-a-roblox-game-card-to-the-gamelibrary-section-the-card-must-follow-the-existing-gamecard-component-pattern-with-a-thumbnail-image-genre-badge-e-g-sandbox-title-roblox-a-short-description-and-a-play-now-button-styled-with-the-neon-arcade-theme",
+      "featureTitle": "Add a Roblox game card to the GameLibrary section. The card must follow the existing GameCard component pattern with a thumbnail image, genre badge (e.g., 'Sandbox'), title 'Roblox', a short description, and a 'Play Now' button styled with the neon arcade theme.",
       "files": [
         "frontend/src/components/GameLibrary.tsx"
       ],
@@ -16,13 +16,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-5"
+        "REQ-8"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-iframe-embed-play-pages-for-the-six-new-games-using-these-urls-fortnite-https-www-xbox-com-en-us-play-games-fortnite-bt5p2x999vh2-brawl-stars-https-brawlstars-com-clash-of-clans-https-clashofclans-com-minecraft-https-classic-minecraft-net-fifa-26-https-www-ea-com-games-ea-sports-fc-fc-26-geometry-dash-https-geometrydash-io-each-game-must-have-a-dedicated-route-at-play-gameid-that-embeds-the-game-in-a-full-width-iframe-consistent-with-the-existing-gameplaypage-pattern",
-      "featureTitle": "Add iframe embed play pages for the six new games using these URLs: Fortnite — https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2, Brawl Stars — https://brawlstars.com, Clash of Clans — https://clashofclans.com, Minecraft — https://classic.minecraft.net, FIFA 26 — https://www.ea.com/games/ea-sports-fc/fc-26, Geometry Dash — https://geometrydash.io. Each game must have a dedicated route at /play/$gameId that embeds the game in a full-width iframe, consistent with the existing GamePlayPage pattern.",
+      "featureId": "feature-add-an-iframe-embed-play-page-for-roblox-at-route-play-roblox-using-the-url-https-www-roblox-com-games-the-page-must-embed-the-game-in-a-full-width-iframe-consistent-with-the-existing-gameplaypage-pattern",
+      "featureTitle": "Add an iframe embed play page for Roblox at route /play/roblox using the URL https://www.roblox.com/games. The page must embed the game in a full-width iframe consistent with the existing GamePlayPage pattern.",
       "files": [
         "frontend/src/pages/GamePlayPage.tsx"
       ],
@@ -35,13 +35,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-6"
+        "REQ-9"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-header-and-footer-components-to-reflect-the-expanded-game-count-now-10-games-total-the-game-count-badge-in-the-header-and-the-game-list-in-the-footer-should-include-all-ten-games",
-      "featureTitle": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
+      "featureId": "feature-update-the-header-and-footer-components-to-reflect-the-expanded-game-count-now-11-games-total-the-game-count-badge-in-the-header-should-display-11-games-and-the-footer-game-list-should-include-roblox",
+      "featureTitle": "Update the Header and Footer components to reflect the expanded game count (now 11 games total). The game count badge in the Header should display '11 GAMES' and the Footer game list should include Roblox.",
       "files": [
         "frontend/src/components/Footer.tsx",
         "frontend/src/components/Header.tsx"
@@ -55,7 +55,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-7"
+        "REQ-10"
       ],
       "confidence": "high"
     }

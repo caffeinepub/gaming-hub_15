@@ -62,6 +62,12 @@ const gameData: Record<string, { title: string; url: string; color: string; desc
     color: 'neon-pink',
     description: 'Jump and fly through rhythm-based danger!',
   },
+  'roblox': {
+    title: 'Roblox',
+    url: 'https://www.roblox.com/games',
+    color: 'neon-yellow',
+    description: 'Dive into millions of player-created worlds!',
+  },
 };
 
 const colorStyles: Record<string, { text: string; border: string; bg: string; glow: string }> = {

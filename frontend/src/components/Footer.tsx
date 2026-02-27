@@ -38,6 +38,8 @@ export default function Footer() {
             <span>FIFA 26</span>
             <span className="text-neon-green/30">•</span>
             <span>Geometry Dash</span>
+            <span className="text-neon-green/30">•</span>
+            <span>Roblox</span>
           </div>
 
           {/* Attribution */}

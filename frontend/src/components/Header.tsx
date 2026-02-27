@@ -50,7 +50,7 @@ export default function Header() {
             </button>
             <div className="ml-2 flex items-center gap-2 px-3 py-1.5 rounded border border-neon-green/30 bg-neon-green/5">
               <Gamepad2 size={16} className="text-neon-green" />
-              <span className="font-orbitron text-xs font-bold text-neon-green">10 GAMES</span>
+              <span className="font-orbitron text-xs font-bold text-neon-green">11 GAMES</span>
             </div>
           </nav>
         </div>
