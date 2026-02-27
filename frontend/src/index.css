@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0.1 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.14 0 0;
+    --popover-foreground: 0.95 0 0;
+    --primary: 0.85 0.22 142;
+    --primary-foreground: 0.08 0 0;
+    --secondary: 0.18 0 0;
+    --secondary-foreground: 0.95 0 0;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.6 0 0;
+    --accent: 0.75 0.25 330;
+    --accent-foreground: 0.08 0 0;
+    --destructive: 0.65 0.25 25;
+    --destructive-foreground: 0.95 0 0;
+    --border: 0.25 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.85 0.22 142;
+    --neon-green: 0.88 0.28 142;
+    --neon-pink: 0.72 0.28 330;
+    --neon-yellow: 0.92 0.22 100;
+    --neon-cyan: 0.82 0.2 200;
+    --neon-purple: 0.65 0.28 290;
+    --chart-1: 0.85 0.22 142;
+    --chart-2: 0.72 0.28 330;
+    --chart-3: 0.92 0.22 100;
+    --chart-4: 0.82 0.2 200;
+    --chart-5: 0.65 0.28 290;
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.85 0.22 142;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.95 0 0;
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: 0.85 0.22 142;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Rajdhani', sans-serif;
+    background-color: oklch(0.1 0 0);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, oklch(0.85 0.22 142 / 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, oklch(0.72 0.28 330 / 0.04) 0%, transparent 50%),
+      linear-gradient(180deg, oklch(0.1 0 0) 0%, oklch(0.08 0 0) 100%);
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-arcade {
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .neon-text-green {
+    color: oklch(0.88 0.28 142);
+    text-shadow:
+      0 0 7px oklch(0.88 0.28 142 / 0.9),
+      0 0 14px oklch(0.88 0.28 142 / 0.7),
+      0 0 28px oklch(0.88 0.28 142 / 0.5),
+      0 0 56px oklch(0.88 0.28 142 / 0.3);
+  }
+
+  .neon-text-pink {
+    color: oklch(0.72 0.28 330);
+    text-shadow:
+      0 0 7px oklch(0.72 0.28 330 / 0.9),
+      0 0 14px oklch(0.72 0.28 330 / 0.7),
+      0 0 28px oklch(0.72 0.28 330 / 0.5),
+      0 0 56px oklch(0.72 0.28 330 / 0.3);
+  }
+
+  .neon-text-yellow {
+    color: oklch(0.92 0.22 100);
+    text-shadow:
+      0 0 7px oklch(0.92 0.22 100 / 0.9),
+      0 0 14px oklch(0.92 0.22 100 / 0.7),
+      0 0 28px oklch(0.92 0.22 100 / 0.5);
+  }
+
+  .neon-text-cyan {
+    color: oklch(0.82 0.2 200);
+    text-shadow:
+      0 0 7px oklch(0.82 0.2 200 / 0.9),
+      0 0 14px oklch(0.82 0.2 200 / 0.7),
+      0 0 28px oklch(0.82 0.2 200 / 0.5);
+  }
+
+  .neon-border-green {
+    border-color: oklch(0.88 0.28 142);
+    box-shadow:
+      0 0 5px oklch(0.88 0.28 142 / 0.5),
+      0 0 10px oklch(0.88 0.28 142 / 0.3),
+      inset 0 0 5px oklch(0.88 0.28 142 / 0.1);
+  }
+
+  .neon-border-pink {
+    border-color: oklch(0.72 0.28 330);
+    box-shadow:
+      0 0 5px oklch(0.72 0.28 330 / 0.5),
+      0 0 10px oklch(0.72 0.28 330 / 0.3),
+      inset 0 0 5px oklch(0.72 0.28 330 / 0.1);
+  }
+
+  .neon-glow-green {
+    box-shadow:
+      0 0 10px oklch(0.88 0.28 142 / 0.6),
+      0 0 20px oklch(0.88 0.28 142 / 0.4),
+      0 0 40px oklch(0.88 0.28 142 / 0.2);
+  }
+
+  .neon-glow-pink {
+    box-shadow:
+      0 0 10px oklch(0.72 0.28 330 / 0.6),
+      0 0 20px oklch(0.72 0.28 330 / 0.4),
+      0 0 40px oklch(0.72 0.28 330 / 0.2);
+  }
+
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      oklch(0 0 0 / 0.03) 2px,
+      oklch(0 0 0 / 0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(oklch(0.88 0.28 142 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.88 0.28 142 / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse-neon {
+  0%, 100% {
+    text-shadow:
+      0 0 7px oklch(0.88 0.28 142 / 0.9),
+      0 0 14px oklch(0.88 0.28 142 / 0.7),
+      0 0 28px oklch(0.88 0.28 142 / 0.5);
+  }
+  50% {
+    text-shadow:
+      0 0 14px oklch(0.88 0.28 142),
+      0 0 28px oklch(0.88 0.28 142 / 0.9),
+      0 0 56px oklch(0.88 0.28 142 / 0.7),
+      0 0 84px oklch(0.88 0.28 142 / 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-flicker {
+  animation: flicker 3s infinite;
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.5s ease-out forwards;
+}

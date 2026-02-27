@@ -1,0 +1,71 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T05:07:38.500Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-5",
+        "summary": "Add six new game cards to the GameLibrary section: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Each card must follow the existing GameCard component pattern with a thumbnail, genre badge, title, short description, and 'Play Now' button styled with the neon arcade theme.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/GameLibrary.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/GameLibrary.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Add iframe embed play pages for the six new games using these URLs: Fortnite — https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2, Brawl Stars — https://brawlstars.com, Clash of Clans — https://clashofclans.com, Minecraft — https://classic.minecraft.net, FIFA 26 — https://www.ea.com/games/ea-sports-fc/fc-26, Geometry Dash — https://geometrydash.io. Each game must have a dedicated route at /play/$gameId that embeds the game in a full-width iframe, consistent with the existing GamePlayPage pattern.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/GamePlayPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/GamePlayPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Header.tsx",
+          "frontend/src/components/Footer.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Header.tsx",
+          "frontend/src/components/Footer.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/brawlstars-thumb.dim_400x225.png",
+    "frontend/public/assets/generated/clashofclans-thumb.dim_400x225.png",
+    "frontend/public/assets/generated/fifa26-thumb.dim_400x225.png",
+    "frontend/public/assets/generated/fortnite-thumb.dim_400x225.png",
+    "frontend/public/assets/generated/geometrydash-thumb.dim_400x225.png",
+    "frontend/public/assets/generated/minecraft-thumb.dim_400x225.png",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/GameLibrary.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/pages/GamePlayPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "A gaming website (arcade-style hub) featuring Subway Surfers, Slope, 1v1.lol, Flappy Bird, Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Games are displayed as cards with descriptions and embedded via iframes for in-browser play.",
+  "architectural_notes": [
+    "Games are embedded using iframes pointing to external hosted game URLs"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Neon-stylized game thumbnail for Fortnite showing a colorful battle royale scene with bold lettering (fortnite-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Brawl Stars showing cartoon characters in a vibrant arena (brawlstars-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Clash of Clans showing a medieval village with glowing accents (clashofclans-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Minecraft showing pixelated blocky landscape with neon glow effects (minecraft-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for FIFA 26 showing a soccer stadium with electric lighting (fifa26-thumb.dim_400x225.png)\n- Neon-stylized game thumbnail for Geometry Dash showing geometric shapes and neon color trail (geometrydash-thumb.dim_400x225.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-visually-striking-gaming-hub-homepage-with-a-bold-arcade-neon-aesthetic-dark-background-vivid-accent-colors-e-g-neon-green-hot-pink-electric-yellow-pixel-inspired-typography-and-a-dynamic-grid-layout-for-game-cards-apply-this-theme-consistently-across-all-pages-and-components",
+      "title": "Create a visually striking gaming hub homepage with a bold arcade/neon aesthetic — dark background, vivid accent colors (e.g., neon green, hot pink, electric yellow), pixel-inspired typography, and a dynamic grid layout for game cards. Apply this theme consistently across all pages and components.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-game-library-section-on-the-homepage-that-displays-four-game-cards-subway-surfers-slope-1v1-lol-and-flappy-bird-each-card-must-show-the-game-title-a-short-description-a-thumbnail-image-and-a-play-now-button",
+      "title": "Build a game library section on the homepage that displays four game cards — Subway Surfers, Slope, 1v1.lol, and Flappy Bird. Each card must show the game title, a short description, a thumbnail image, and a 'Play Now' button.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-game-detail-play-page-for-each-game-when-a-user-clicks-play-now-on-a-game-card-navigate-to-a-dedicated-page-that-embeds-the-game-in-a-full-width-iframe-use-the-following-urls-subway-surfers-https-poki-com-en-g-subway-surfers-slope-https-slope-game-github-io-1v1-lol-https-1v1-lol-flappy-bird-https-flappybird-io",
+      "title": "Implement a game detail/play page for each game. When a user clicks 'Play Now' on a game card, navigate to a dedicated page that embeds the game in a full-width iframe. Use the following URLs: Subway Surfers — https://poki.com/en/g/subway-surfers, Slope — https://slope-game.github.io, 1v1.lol — https://1v1.lol, Flappy Bird — https://flappybird.io.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-site-header-navigation-bar-with-the-site-name-logo-and-links-to-scroll-to-or-navigate-the-game-library-the-header-should-be-sticky-and-styled-with-the-neon-arcade-theme",
+      "title": "Add a site header/navigation bar with the site name/logo and links to scroll to or navigate the game library. The header should be sticky and styled with the neon arcade theme.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-six-new-game-cards-to-the-gamelibrary-section-fortnite-brawl-stars-clash-of-clans-minecraft-fifa-26-and-geometry-dash-each-card-must-follow-the-existing-gamecard-component-pattern-with-a-thumbnail-genre-badge-title-short-description-and-play-now-button-styled-with-the-neon-arcade-theme",
+      "title": "Add six new game cards to the GameLibrary section: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Each card must follow the existing GameCard component pattern with a thumbnail, genre badge, title, short description, and 'Play Now' button styled with the neon arcade theme.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-iframe-embed-play-pages-for-the-six-new-games-using-these-urls-fortnite-https-www-xbox-com-en-us-play-games-fortnite-bt5p2x999vh2-brawl-stars-https-brawlstars-com-clash-of-clans-https-clashofclans-com-minecraft-https-classic-minecraft-net-fifa-26-https-www-ea-com-games-ea-sports-fc-fc-26-geometry-dash-https-geometrydash-io-each-game-must-have-a-dedicated-route-at-play-gameid-that-embeds-the-game-in-a-full-width-iframe-consistent-with-the-existing-gameplaypage-pattern",
+      "title": "Add iframe embed play pages for the six new games using these URLs: Fortnite — https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2, Brawl Stars — https://brawlstars.com, Clash of Clans — https://clashofclans.com, Minecraft — https://classic.minecraft.net, FIFA 26 — https://www.ea.com/games/ea-sports-fc/fc-26, Geometry Dash — https://geometrydash.io. Each game must have a dedicated route at /play/$gameId that embeds the game in a full-width iframe, consistent with the existing GamePlayPage pattern.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-header-and-footer-components-to-reflect-the-expanded-game-count-now-10-games-total-the-game-count-badge-in-the-header-and-the-game-list-in-the-footer-should-include-all-ten-games",
+      "title": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Game library UI with cards and descriptions for each game",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Embed Subway Surfers via iframe for in-browser play",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Embed Slope via iframe for in-browser play",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Embed 1v1.lol via iframe for in-browser play",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Embed Flappy Bird via iframe for in-browser play",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add Fortnite game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add Brawl Stars game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add Clash of Clans game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add Minecraft game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add FIFA 26 game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add Geometry Dash game card and iframe embed",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Gaming Hub",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

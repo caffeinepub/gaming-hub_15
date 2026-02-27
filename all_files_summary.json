@@ -1,0 +1,21 @@
+{
+  "backend/main.mo": "Motoko actor that composes blob storage functionality via a MixinStorage mixin from the blob-storage module.",
+  "feature_evidence.json": "Evidence report mapping three implemented features (new game cards, iframe play pages, header/footer updates) to their affected files, components, and test IDs with high confidence.",
+  "frontend-file-summaries.txt": "JSON document containing one-sentence summaries of each frontend source file, describing their roles in the neon arcade-themed gaming hub app.",
+  "frontend/index.css": "Base Tailwind CSS file defining OKLCH-based design tokens for light and dark themes including background, foreground, primary, border, and chart colors.",
+  "frontend/index.html": "Minimal HTML entry point that mounts the React app into a root div and loads the main TypeScript module.",
+  "frontend/src/App.tsx": "Root React component that configures TanStack Router with a root layout (Header + Footer) and two routes: home (/) and game play (/play/$gameId).",
+  "frontend/src/components/Footer.tsx": "Footer component displaying the Arcade Hub logo, a list of all 10 games, copyright year, and a caffeine.ai attribution link with UTM tracking.",
+  "frontend/src/components/GameCard.tsx": "Reusable game card component rendering a thumbnail, genre badge, title, description, and Play Now button with four neon accent color variants and hover animations.",
+  "frontend/src/components/GameLibrary.tsx": "Game library section that renders a responsive grid of 10 GameCard components covering the original 4 games plus 6 newly added titles, with a styled section header.",
+  "frontend/src/components/Header.tsx": "Sticky header with the Arcade Hub logo, Home and Games navigation links, and a badge displaying '10 GAMES' styled with the neon green theme.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and caches an ICP backend actor (anonymous or authenticated) using React Query, and invalidates dependent queries whenever the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context and provider, exposing login/logout functions, identity state, and login status via a React context backed by DFINITY's AuthClient.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file reserved for future backend query hooks; currently exports nothing.",
+  "frontend/src/index.css": "Global stylesheet that imports Google Fonts, configures Tailwind base/components/utilities, defines CSS custom properties for a dark neon theme, and adds utility classes for neon text, borders, glows, and scanline effects.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app with React Query and InternetIdentityProvider wrappers around the root App component.",
+  "frontend/src/pages/GamePlayPage.tsx": "Page component that looks up a game by route param and renders its external URL in an iframe with a toolbar for navigation, fullscreen, and external link actions.",
+  "frontend/src/pages/HomePage.tsx": "Landing page featuring a hero section with animated neon branding, CTA buttons, and a stats bar, followed by the GameLibrary component.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the default theme with oklch-based neon color tokens, custom fonts (Orbitron, Rajdhani, Press Start 2P), neon box-shadow utilities, and animation keyframes.",
+  "project_state.json": "Tracks the project state (version 5) for an arcade-style gaming hub website featuring 10 games, including architectural notes, existing features, known issues, and image requirements for neon-stylized thumbnails."
+}

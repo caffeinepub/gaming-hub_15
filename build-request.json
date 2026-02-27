@@ -1,0 +1,82 @@
+{
+  "kind": "build_request",
+  "title": "Add 6 new games: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, Geometry Dash",
+  "projectName": "Arcade Hub",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "text": "Add six new game cards to the GameLibrary section: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Each card must follow the existing GameCard component pattern with a thumbnail, genre badge, title, short description, and 'Play Now' button styled with the neon arcade theme.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can you add Fortnite and brawl stars and clash of clans also Minecraft ohh and fifa 26 and last but not least geometry dash"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Six new game cards appear in the GameLibrary grid alongside the existing four",
+        "Each new card displays a title, short description, genre badge, and 'Play Now' button",
+        "Cards are styled consistently with the existing neon arcade theme",
+        "The grid layout accommodates the expanded set of cards responsively"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add iframe embed play pages for the six new games using these URLs: Fortnite — https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2, Brawl Stars — https://brawlstars.com, Clash of Clans — https://clashofclans.com, Minecraft — https://classic.minecraft.net, FIFA 26 — https://www.ea.com/games/ea-sports-fc/fc-26, Geometry Dash — https://geometrydash.io. Each game must have a dedicated route at /play/$gameId that embeds the game in a full-width iframe, consistent with the existing GamePlayPage pattern.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Can you add Fortnite and brawl stars and clash of clans also Minecraft ohh and fifa 26 and last but not least geometry dash"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking 'Play Now' on any of the six new game cards navigates to /play/$gameId",
+        "Each game page renders a full-width iframe with the correct URL",
+        "The play page toolbar shows the game name and a back/external link option",
+        "All six new game routes work without breaking existing game routes"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header game count badge displays 10 instead of 4",
+        "Footer game list includes all ten games",
+        "No visual regressions in the header or footer layout"
+      ]
+    }
+  ],
+  "constraints": [
+    "Preserve all existing game cards and their iframe URLs without modification",
+    "All new components must follow the existing neon arcade theme defined in index.css and tailwind.config.js",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/main.tsx"
+  ],
+  "nonGoals": [
+    "Adding search or filter functionality to the game library",
+    "Backend changes — all game data remains frontend-only",
+    "User accounts, favorites, or any personalization features"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Neon-stylized game thumbnail for Fortnite showing a colorful battle royale scene with bold lettering (fortnite-thumb.dim_400x225.png)",
+      "Neon-stylized game thumbnail for Brawl Stars showing cartoon characters in a vibrant arena (brawlstars-thumb.dim_400x225.png)",
+      "Neon-stylized game thumbnail for Clash of Clans showing a medieval village with glowing accents (clashofclans-thumb.dim_400x225.png)",
+      "Neon-stylized game thumbnail for Minecraft showing pixelated blocky landscape with neon glow effects (minecraft-thumb.dim_400x225.png)",
+      "Neon-stylized game thumbnail for FIFA 26 showing a soccer stadium with electric lighting (fifa26-thumb.dim_400x225.png)",
+      "Neon-stylized game thumbnail for Geometry Dash showing geometric shapes and neon color trail (geometrydash-thumb.dim_400x225.png)"
+    ],
+    "edits": []
+  }
+}

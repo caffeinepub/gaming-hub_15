@@ -1,0 +1,63 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-six-new-game-cards-to-the-gamelibrary-section-fortnite-brawl-stars-clash-of-clans-minecraft-fifa-26-and-geometry-dash-each-card-must-follow-the-existing-gamecard-component-pattern-with-a-thumbnail-genre-badge-title-short-description-and-play-now-button-styled-with-the-neon-arcade-theme",
+      "featureTitle": "Add six new game cards to the GameLibrary section: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. Each card must follow the existing GameCard component pattern with a thumbnail, genre badge, title, short description, and 'Play Now' button styled with the neon arcade theme.",
+      "files": [
+        "frontend/src/components/GameLibrary.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-iframe-embed-play-pages-for-the-six-new-games-using-these-urls-fortnite-https-www-xbox-com-en-us-play-games-fortnite-bt5p2x999vh2-brawl-stars-https-brawlstars-com-clash-of-clans-https-clashofclans-com-minecraft-https-classic-minecraft-net-fifa-26-https-www-ea-com-games-ea-sports-fc-fc-26-geometry-dash-https-geometrydash-io-each-game-must-have-a-dedicated-route-at-play-gameid-that-embeds-the-game-in-a-full-width-iframe-consistent-with-the-existing-gameplaypage-pattern",
+      "featureTitle": "Add iframe embed play pages for the six new games using these URLs: Fortnite — https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2, Brawl Stars — https://brawlstars.com, Clash of Clans — https://clashofclans.com, Minecraft — https://classic.minecraft.net, FIFA 26 — https://www.ea.com/games/ea-sports-fc/fc-26, Geometry Dash — https://geometrydash.io. Each game must have a dedicated route at /play/$gameId that embeds the game in a full-width iframe, consistent with the existing GamePlayPage pattern.",
+      "files": [
+        "frontend/src/pages/GamePlayPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-header-and-footer-components-to-reflect-the-expanded-game-count-now-10-games-total-the-game-count-badge-in-the-header-and-the-game-list-in-the-footer-should-include-all-ten-games",
+      "featureTitle": "Update the Header and Footer components to reflect the expanded game count (now 10 games total). The game count badge in the Header and the game list in the Footer should include all ten games.",
+      "files": [
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add 6 new games: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, Geometry Dash",
+  "requirements": [
+    {
+      "id": "REQ-5",
+      "summary": "Add six new game cards to the GameLibrary section with neon arcade theme styling",
+      "acceptanceCriteria": [
+        "Six new game cards appear in the GameLibrary grid alongside the existing four",
+        "Each new card displays a title, short description, genre badge, and 'Play Now' button",
+        "Cards are styled consistently with the existing neon arcade theme",
+        "The grid layout accommodates the expanded set of cards responsively"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameLibrary.tsx",
+          "operation": "modify",
+          "description": "Add six new GameCard components for Fortnite (Battle Royale genre), Brawl Stars (MOBA genre), Clash of Clans (Strategy genre), Minecraft (Sandbox genre), FIFA 26 (Sports genre), and Geometry Dash (Rhythm genre). Each card must reference its generated thumbnail image using the workspace path frontend/public/assets/generated/fortnite-thumb.dim_400x225.png, frontend/public/assets/generated/brawlstars-thumb.dim_400x225.png, frontend/public/assets/generated/clashofclans-thumb.dim_400x225.png, frontend/public/assets/generated/minecraft-thumb.dim_400x225.png, frontend/public/assets/generated/fifa26-thumb.dim_400x225.png, and frontend/public/assets/generated/geometrydash-thumb.dim_400x225.png respectively. Use the existing GameCard component pattern with appropriate color variants (neon-blue, neon-purple, neon-pink, neon-green) distributed across the new cards. Ensure the grid layout remains responsive and accommodates all ten cards."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add iframe embed play pages for the six new games with dedicated routes",
+      "acceptanceCriteria": [
+        "Clicking 'Play Now' on any of the six new game cards navigates to /play/$gameId",
+        "Each game page renders a full-width iframe with the correct URL",
+        "The play page toolbar shows the game name and a back/external link option",
+        "All six new game routes work without breaking existing game routes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/GamePlayPage.tsx",
+          "operation": "modify",
+          "description": "Extend the game URL mapping to include six new games: Fortnite (gameId: 'fortnite', URL: https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2), Brawl Stars (gameId: 'brawl-stars', URL: https://brawlstars.com), Clash of Clans (gameId: 'clash-of-clans', URL: https://clashofclans.com), Minecraft (gameId: 'minecraft', URL: https://classic.minecraft.net), FIFA 26 (gameId: 'fifa-26', URL: https://www.ea.com/games/ea-sports-fc/fc-26), and Geometry Dash (gameId: 'geometry-dash', URL: https://geometrydash.io). Ensure each game renders in the iframe using the existing GamePlayPage pattern with the toolbar displaying the correct game name and external link option. The gameId values must match those used in the GameCard 'Play Now' button links."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Update Header and Footer components to reflect expanded game count of 10 games total",
+      "acceptanceCriteria": [
+        "Header game count badge displays 10 instead of 4",
+        "Footer game list includes all ten games",
+        "No visual regressions in the header or footer layout"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Update the game count badge to display 10 instead of 4 to reflect the total number of available games. Ensure the badge styling and positioning remain consistent with the existing neon arcade theme."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Add six new games to the footer game list: Fortnite, Brawl Stars, Clash of Clans, Minecraft, FIFA 26, and Geometry Dash. The footer should now display all ten games in the game list section. Maintain the existing footer layout and styling without visual regressions."
+        }
+      ]
+    }
+  ]
+}
